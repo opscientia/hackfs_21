@@ -1,16 +1,19 @@
 import Head from 'next/head';
 import Header from '../components/header';
+import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
+import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
+
 const Layout = ({ children }) => (
   <>
     <Head>
       <title>Opsci</title>
       <link rel="icon" href="Opscientia Logo White.png" />
     </Head>
+    
+<main className="container">{children}</main>
 
-    <Header />
-    <main className="container">{children}</main>
-
-    <style jsx global>{`
+   <style jsx global>{`
       *,
       *::before,
       *::after {
@@ -18,7 +21,7 @@ const Layout = ({ children }) => (
       }
       body {
         margin: 0;
-        color: #333;
+        color: black;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
           'Helvetica Neue', Arial, Noto Sans, sans-serif, 'Apple Color Emoji',
           'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -28,8 +31,10 @@ const Layout = ({ children }) => (
         margin: 0 auto;
         padding: 2rem 1.25rem;
       }
+      
     `}</style>
   </>
 );
 
 export default Layout;
+

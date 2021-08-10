@@ -1,13 +1,10 @@
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/client';
-import { walletlogin, getState,walletsee } from '../pages/auth';
-import onboard from '../pages/auth';
 import React from 'react'
 import { useOnboard } from "use-onboard";
 
 const Header = () => {
   const [session, loading] = useSession();
-let i=0;
 const {
   selectWallet,
   address,
@@ -78,6 +75,7 @@ const {
       <style jsx>{`
         header {
           border-bottom: 1px solid #ccc;
+          background-color: #6b6feg;
         }
 
         nav {
@@ -85,13 +83,15 @@ const {
           justify-content: space-between;
           max-width: 82rem;
           margin: 0 auto;
-          padding: 0.2rem 1.25rem;
+          background-color: #6b6feg;
         }
 
         .logo {
           text-decoration: none;
-          font-size: 1.5rem;
-          font-weight: 600;
+          font-size: 1.95rem;
+          font-weight: 620;
+          padding: 0.2rem 4.25rem;
+
         }
 
         .avatar {
@@ -132,6 +132,9 @@ const {
         }
         .signOutButton:hover {
           background-color: #555;
+        }
+        .span{
+          height:2rem;
         }
       `}</style>
     </header>

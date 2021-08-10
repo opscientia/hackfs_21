@@ -13,7 +13,13 @@
     "next-auth": "^3.23.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
+    "react-intl": "^5.20.7",
+    "react-pro-sidebar": "^0.6.0",
+    "react-router-dom": "^5.2.0",
+    "react-sticky-box": "^0.9.3",
     "sqlite3": "^5.0.2",
+    "styled-components": "^5.3.0",
     "use-onboard": "^0.2.6",
     "web3": "^1.5.1"
   }
