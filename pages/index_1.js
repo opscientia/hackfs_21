@@ -1,7 +1,9 @@
 import Layout from '../components/layout';
+import Sidebar from '../components/sidebar';
 
 const Home = () => (
   <Layout>
+    <Sidebar />
     <h1>Next Auth App</h1>
     <p>
       This is a sample project that uses{' '}
