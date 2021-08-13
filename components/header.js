@@ -1,74 +1,27 @@
-import Link from 'next/link';
-import { signIn, signOut, useSession } from 'next-auth/client';
 import React from 'react'
-import { useOnboard } from "use-onboard";
+import Image from 'next/image';
 
 const Header = () => {
-  const [session, loading] = useSession();
-const {
-  selectWallet,
-  address,
-  isWalletSelected,
-  disconnectWallet,
-  balance
-} = useOnboard();
   return (
     <header>
       <nav>
-        <Link href="/">
-          <a className="logo">
-            <span style={{ color: '#f06292' }}>O</span>
-            <span style={{ color: '#29b6f6' }}>p</span>
-            <span style={{ color: '#8bc34a' }}>S</span>
-            <span style={{ color: '#f06292' }}>c</span>
-            <span style={{ color: '#29b6f6' }}>i</span>
-          </a>
-        </Link>
-
+        <p />
         <p>
-          {!session && (
-            <a
-              href="/api/auth/signin"
-              onClick={(e) => {
-                e.preventDefault();
-                signIn();
-              }}
-            >
-              <button className="signInButton">Sign in</button>
-            </a>
-          )}
-          {session && (
-            <>
-              <Link href="/profile">
-                <a>
-                  <span
-                    style={{ backgroundImage: `url(${session.user.image})` }}
-                    className="avatar"
-                  />
-                </a>
-              </Link>
-              <span className="email">{session.user.email}</span>
-              <a
-                href="/api/auth/signout"
-                onClick={(e) => {
-                  e.preventDefault();
-                  signOut();
-                }}
-              >
-                <button className="signOutButton">Sign out</button>
-              </a>
-            </>
-          )}
-      {
-        <button className="signOutButton"
-          onClick={async () => {
-            if (isWalletSelected) disconnectWallet();
-            else await selectWallet();
-          }}
-        >
-          {isWalletSelected ?   "Disconnect Wallet" : "Connect Wallet"}
-        </button>
-      }
+          <div className="user">
+          <span>Nickname</span>
+          <span>
+            <Image 
+            alt="avatar"
+            src="/headshot.png"
+            objectFit="fill"
+            quality={100}
+            width={50}
+            height={50}
+            className="border border-gray-200 shadow-md rounded-md cursor  
+              pointer p-2"
+          />
+          </span>
+          </div>
         </p>
       </nav>
 
@@ -86,53 +39,31 @@ const {
           background-color: #6b6feg;
         }
 
-        .logo {
-          text-decoration: none;
-          font-size: 1.95rem;
-          font-weight: 620;
-          padding: 0.2rem 4.25rem;
-
+        .user {
+          border-radius: 2rem;
+          height: 2.2rem;
+          margin-left: auto; 
+          margin-right: 0;
+          background-size: cover;
         }
 
         .avatar {
-          border-radius: 2rem;
-          float: left;
-          height: 2.2rem;
-          width: 2.2rem;
-          background-color: white;
-          background-size: cover;
-          border: 2px solid #ddd;
+          vertical-align: middle;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
         }
 
-        .email {
-          margin-right: 1rem;
-          margin-left: 0.25rem;
-          font-weight: 600;
-        }
+        // .avatar {
+        //   border-radius: 2rem;
+        //   float: left;
+        //   height: 2.2rem;
+        //   width: 2.2rem;
+        //   background-color: white;
+        //   background-size: cover;
+        //   border: 2px solid #ddd;
+        // }
 
-        .signInButton,
-        .signOutButton {
-          color: #fff;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 1rem;
-          padding: 0.5rem 1rem;
-        }
-
-        .signInButton {
-          background-color: #1eb1fc;
-        }
-        .signInButton:hover {
-          background-color: #1b9fe2;
-        }
-
-        .signOutButton {
-          background-color: #333;
-        }
-        .signOutButton:hover {
-          background-color: #555;
-        }
         .span{
           height:2rem;
         }
