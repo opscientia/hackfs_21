@@ -1,5 +1,6 @@
 import React from 'react'
-import Image from 'next/image';
+import { IconContext } from 'react-icons';
+import { FaBeer,FaUserAstronaut } from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -8,19 +9,23 @@ const Header = () => {
         <p />
         <p>
           <div className="user">
-          <span>Nickname</span>
-          <span>
-            <Image 
-            alt="avatar"
-            src="/headshot.png"
-            objectFit="fill"
-            quality={100}
-            width={50}
-            height={50}
-            className="border border-gray-200 shadow-md rounded-md cursor  
-              pointer p-2"
-          />
-          </span>
+<span className='avatar'>
+
+  <IconContext.Provider value={{ color: "black", className: "react-icons",size:"1.4em",style:{float:"right",transform:"translate(-40%,40%)"}}}>
+          <FaUserAstronaut />
+</ IconContext.Provider>
+</span>
+<span className="name" style={{ 
+      margin: "auto",
+    borderRadius: "0px 6px 6px 0px",
+    border: "1px solid #ddd",
+    fontFamily: "roboto",
+    textShadow: "0px -1px 0px rgba(0,0,0,0.5)",
+    verticalAlign:"middle",
+    textAlign: "center",
+    float: "left",
+    }}>&nbsp;&nbsp;Nickname&nbsp;</span>
+
           </div>
         </p>
       </nav>
@@ -30,43 +35,70 @@ const Header = () => {
           border-bottom: 1px solid #ccc;
           background-color: #6b6feg;
         }
-
+        
         nav {
           display: flex;
           justify-content: space-between;
           max-width: 82rem;
           margin: 0 auto;
           background-color: #6b6feg;
+          
         }
 
         .user {
-          border-radius: 2rem;
-          height: 2.2rem;
           margin-left: auto; 
-          margin-right: 0;
+          margin-right: auto;
           background-size: cover;
-        }
-
-        .avatar {
-          vertical-align: middle;
-          width: 50px;
           height: 50px;
-          border-radius: 50%;
-        }
+          vertical-align: middle;
+          boxShadow:  "0px 0px 10px 0px rgba(0, 0, 0, 0.75)",
 
-        // .avatar {
-        //   border-radius: 2rem;
-        //   float: left;
-        //   height: 2.2rem;
-        //   width: 2.2rem;
-        //   background-color: white;
-        //   background-size: cover;
-        //   border: 2px solid #ddd;
-        // }
 
-        .span{
-          height:2rem;
+          
         }
+        .avatar {
+        border-radius: 2rem;
+           float: left;
+           height: 2.8rem;
+           width: 2.8rem;
+           background-color: white;
+           background-size: cover;
+           border: 2px solid #ddd;
+           vertical-align: middle;
+           transform: translateY(10%);
+          overflow: hidden;
+          z-index: -10;
+
+          }
+          .name{
+            transform: translate(-4%,80%);
+            z-index: 10;
+            background-color:#f1f1f1;
+            position:relative;
+
+          }
+ .signInButton,
+        .signOutButton {
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+        }
+        .signInButton {
+          background-color: #1eb1fc;
+        }
+        .signInButton:hover {
+          background-color: #1b9fe2;
+        }
+        .signOutButton {
+          background-color: #333;
+        }
+        .signOutButton:hover {
+          background-color: #555;
+        }
+      
       `}</style>
     </header>
   );

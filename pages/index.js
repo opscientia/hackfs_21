@@ -1,80 +1,80 @@
 import Layout from '../components/layout';
-import { ProSidebar, Menu, MenuItem, SubMenu,SidebarHeader } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
-import { FaGem, FaAddressCard, FaWallet, FaSearch,FaStream } from 'react-icons/fa';
+import Sidebar from '../components/Sidebar';
 import Header from '../components/header';
+import { IconContext } from 'react-icons';
+import { FaUser } from 'react-icons/fa';
+import HorizontalGallery from 'react-dynamic-carousel'
 
-<style jsx global>{`
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-.MenuItem{
-  height: 120%;
-}
+const example = ["Opsci Tutorial", "Demographics", "vaccination", 3, 4, 5, 6, 7, 8, 9]
 
-`}</style>
+
+
 
 const Home = () => (
 
   <div>
-    <div
-    style={{
-      textTransform: 'uppercase',
-      fontWeight: 'bold',
-      fontSize: 14,
-      letterSpacing: '1px',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      color: '#fff',
-      position:'absolute',
-      height: '100%',
-      margin: '0px auto',
-      float:'left',
-      }}
-      >
-    <ProSidebar breakPoint="xs" collapsedWidth="120px">
-      <SidebarHeader icon={<FaStream/>}>
-        <div
-          style={{
-            padding: '24px',
-            textTransform: 'uppercase',
-            fontWeight: 'bold',
-            fontSize: 14,
-            letterSpacing: '1px',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-          }}
-          >
-          MENU
-        </div>
-      </SidebarHeader>
-      <Menu iconShape="square" popperArrow="true">
-        <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-        <MenuItem icon={<FaSearch />}>Explore</MenuItem>
-        <MenuItem icon={<FaWallet />}>Vault</MenuItem>
-        <MenuItem icon={<FaAddressCard />}>Cards</MenuItem>
-      </Menu>
-    </ProSidebar>
-  </div>
+   <Sidebar/>
   <Header />
-  <Layout
-    style={{
-      float:'right',
-      height:'100'
-      }}
-      > 
+
+  <Layout> 
+    <p/>
+     <IconContext.Provider value={{ color: "black",size:"5.8em",}}>
+            <div style={{borderRadius: '50%',
+           height: '4.8rem',
+           width: '4.8rem',
+           backgroundColor: 'white',
+           backgroundSize: 'cover',
+           border: '2px solid #ddd',
+           transform:'translateX(15%)',
+           float:'left',}}> <FaUser style={{height:'40px',width:'40px',transform:'translate(40%,35%)',}}/></div>
+</ IconContext.Provider>
+
+    <div class="group" style={{backgroundColor: '#050A30',
+  fontSize: '30px',
+  width:'1100px',
+  color:'#fff',
+  display: 'inline block',
+  margin:'35px',
+
+  }}>
+
+      <span class="item1" style={{backgroundColor: '#050A30',
+  borderRadius: '6px',
+  padding: '8px',
+  marginBottom:'5px',
+  display: 'inline block',
+  minHeight: '20px',}}>
+    &nbsp;&nbsp;<b>Opsci Quests </b><span class="item1" style={{
+  borderRadius: '6px',
+  display: 'inline block',
+  minHeight: '20px',}}>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
     
-    <h1>Opsci Passport</h1>
-    <p>
-      Welcome to the world of Decentralized Science{'.   '}
-      Visit <a href={`https://opsci.io`}>Opscientia</a> to
-      learn what we do <a href={`https://discord.gg/qc9zp5sd`}>and how you can contribute to free Science</a>.
-    </p>
+    
+    </div>
+    <HorizontalGallery
+    tiles={example.map((value) => (
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 300,
+                height: 350,
+                backgroundColor: '#D0D0D0',
+                borderRadius: 10
+            }}
+        >
+            <h1>{value}</h1>
+        </div>
+    ))}
+    elementWidth={350}
+    fadeDistance={10}
+    minPadding={20}
+/>
   </Layout>
 </div>
+
 );
 
 export default Home;

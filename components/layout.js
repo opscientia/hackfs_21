@@ -19,6 +19,7 @@ const Layout = ({ children }) => (
       *::after {
         box-sizing: border-box;
       }
+      
       body {
         margin: 0;
         color: black;
@@ -28,8 +29,8 @@ const Layout = ({ children }) => (
       }
       .container {
         max-width: 42rem;
-        margin: 0 auto;
-        padding: 2rem 1.25rem;
+        margin: 0px 50px 50px 380px;
+        padding: 1rem 0.25rem;
       }
       
     `}</style>
